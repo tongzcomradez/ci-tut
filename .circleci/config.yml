@@ -1,6 +1,5 @@
 version: 2
 jobs:
-  build_1:
     docker: # use the docker executor type; machine and macos executors are also supported
       - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
     steps:
@@ -28,20 +27,20 @@ jobs:
       - checkout # check out the code in the project directory
       - run: echo "Build 4" # run the `echo` command
 
-workflows:
+      workflows:
   version: 2
   build_and_test: # name of your workflow
     jobs:
       - build_1
       - build_2:
         requires:
-          - build_1 # wait for build1 job to complete successfully before starting
-           # see circleci.com/docs/2.0/workflows/ for more examples.
+           - build_1 # wait for build1 job to complete successfully before starting
+            # see circleci.com/docs/2.0/workflows/ for more examples.
       - build_3:
         requires:
-          - build_1 # wait for build1 job to complete successfully before starting
-          # run build2 and build3 in parallel to save time.
+           - build_1 # wait for build1 job to complete successfully before starting
+           # run build2 and build3 in parallel to save time.
       - build_4:
         requires:
-          - build_2
-          - build_3
+           - build_2
+           - build_3
