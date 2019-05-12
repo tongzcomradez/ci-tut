@@ -35,7 +35,7 @@ workflows:
       # - build2
       - build2:
         requires:
-          - build1 # wait for build1 job to complete successfully before starting
+           - build1 # wait for build1 job to complete successfully before starting
             # see circleci.com/docs/2.0/workflows/ for more examples.
       # - build3:
       #   requires:
