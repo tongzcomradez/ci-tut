@@ -8,7 +8,7 @@ jobs:
           name: "What branch am I on?"
           command: echo ${CIRCLE_BRANCH}
       - run: # test what branch we're on.
-          name: "What tag am I on?"
+          name: "What tag"
           command: echo ${CIRCLE_TAG}
   
 
